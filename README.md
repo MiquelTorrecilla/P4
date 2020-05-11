@@ -58,19 +58,17 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | $MFCC -l 
   para una señal de prueba.
 
 **LPC**
-
   <img src ="img/Grafica1.jpeg" witdh="640" align="center">
 
 **LPCC**
-
   <img src ="img/Grafica2.jpeg" witdh="640" align="center">
 
 **MFCC**
-
   <img src ="img/Grafica3.jpeg" witdh="640" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
 
+*De las tres representaciones la que da más información es la de los mel-cepstrums, porque tiene coeficientes más incorrelados lo que hará que con mla misma cantidad de datos haya menos redundancia por lo tanto más información. Además cabe destacar que la escala Mel esta pensada para dar más importancia a las frecuencias más relevantes basadas en la percepción del sistema auditivo humano.*
 
 
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
