@@ -59,15 +59,15 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 | $MFCC -l 
 
 **LPC**
 
-  <img src ="img/Grafica1.png" witdh="640" align="center">
+  <img src ="img/Grafica1.jpeg" witdh="640" align="center">
 
 **LPCC**
 
-  <img src ="img/Grafica2.png" witdh="640" align="center">
+  <img src ="img/Grafica2.jpeg" witdh="640" align="center">
 
 **MFCC**
 
-  <img src ="img/Grafica3.png" witdh="640" align="center">
+  <img src ="img/Grafica3.jpeg" witdh="640" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
 
