@@ -32,10 +32,20 @@ ejercicios indicados.
 - Analice el script `wav2lp.sh` y explique la misión de los distintos comandos, y sus opciones, involucrados
   en el *pipeline* principal (`sox`, `$X2X`, `$FRAME`, `$WINDOW` y `$LPC`).
 
+  *sox: es un programa que sirve para generar una señal del formato adecuado a partir de una señal con otro formato, por ejemplo WAVE.*
+  *$X2X: es el programa de SPTK que permite la conversión entre distintos formatos de datos.*
+  *$FRAME: es un programa en el cual le entra una señal y te devuelve a la salida la misma señal dividida en tramas de L muestras tomadas con un desplazamiento de P muestras.* 
+  *$WINDOW: es un programa que multiplica cada trama por la ventana Blackman.*
+  *$LPC: es un programa que calcula los lpc_order primeros coeﬁcientes de predicción lineal, precedidos por el factor de ganancia del predictor*
+
 - Explique el procedimiento seguido para obtener un fichero de formato *fmatrix* a partir de los ficheros
   de salida de SPTK (líneas 41 a 47 del script `wav2lp.sh`).
 
+*Para los ficheros de formato fmatrix necesitamos almacenar en cada fila una trama de la señal y a cada columna uno de los coeficientes con los que se parametriza la trama. Por eso es conveniente que primero se indique el número de filas y columnas. Por lo tanto ncol en el código se saca del número de coef del predictor lineal que es igual a uno más el orden, ya que el primer elemento del vector se almacena la ganancia de la señal: "ncol=$((lpc_order+1))". La obtención del número de filas es un poco más complicada, ya que depende de la longitud de la señal, la longitud y desplazamiento de la ventana, y la cadena de comandos que se ejecutan para obtener la parametrización. Por todo ello, es mejor, simplemente, extraer esa información del ﬁchero obtenido. Lo hacemos convirtiendo la señal parametrizada a texto, usando sox +fa, y contando el número de líneas, con el comando de UNIX wc -l.*
+
   * ¿Por qué es conveniente usar este formato (u otro parecido)?
+
+  *Es conveniente el uso de este formato ya que nos permite visualizar fácilmente el contenido del fichero. Además también permite seleccionar columnas o filas concretas de la matriz y trabajar, por tanto, por tramas o coeficientes del LPC.*
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales de predicción lineal
   (LPCC) en su fichero <code>scripts/wav2lpcc.sh</code>:
