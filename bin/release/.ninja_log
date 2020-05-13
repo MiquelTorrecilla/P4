@@ -50,3 +50,15 @@
 186	270	1589016439	pav_spkid_pytorch/train_nn	a2e7b6eb3f61abb9
 227	289	1589016439	pav_spkid_pytorch/utils	1661f61972d64541
 290	1199	0	meson-install	cacff86cf3b8477c
+2	1067	1589295818	build.ninja	a1536405c961ff5
+66	232	1589295354	scripts/run_spkid	69ef1fb92fd8d448
+76	232	1589016439	scripts/plot_gmm_feat	d7f45a211ed250df
+89	233	1589016439	scripts/spk_verif_score	ca9ca6bc928c3d6c
+112	233	1589205100	scripts/wav2lp	bd361c942d2a4af9
+125	233	1589205322	scripts/wav2lpcc	217bc782f592f2cc
+148	233	1589205243	scripts/wav2mfcc	1965555752d1acc8
+163	233	1589016439	pav_spkid_pytorch/make_spk2idx	140e2da7973f042f
+183	234	1589016439	pav_spkid_pytorch/test_nn	3d4cb77ed2dc1c58
+198	240	1589016439	pav_spkid_pytorch/train_nn	a2e7b6eb3f61abb9
+219	251	1589016439	pav_spkid_pytorch/utils	1661f61972d64541
+251	737	0	meson-install	cacff86cf3b8477c
