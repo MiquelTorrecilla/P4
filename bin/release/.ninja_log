@@ -77,3 +77,14 @@
 361	482	1589016439	pav_spkid_pytorch/train_nn	a2e7b6eb3f61abb9
 418	512	1589016439	pav_spkid_pytorch/utils	1661f61972d64541
 514	1792	0	meson-install	cacff86cf3b8477c
+5	219	1589295354	scripts/run_spkid	69ef1fb92fd8d448
+22	219	1589016439	scripts/plot_gmm_feat	d7f45a211ed250df
+41	220	1589016439	scripts/spk_verif_score	ca9ca6bc928c3d6c
+68	220	1589366761	scripts/wav2lp	bd361c942d2a4af9
+84	221	1589205322	scripts/wav2lpcc	217bc782f592f2cc
+114	221	1589205243	scripts/wav2mfcc	1965555752d1acc8
+131	222	1589016439	pav_spkid_pytorch/make_spk2idx	140e2da7973f042f
+160	222	1589016439	pav_spkid_pytorch/test_nn	3d4cb77ed2dc1c58
+178	233	1589016439	pav_spkid_pytorch/train_nn	a2e7b6eb3f61abb9
+202	245	1589016439	pav_spkid_pytorch/utils	1661f61972d64541
+245	1194	0	meson-install	cacff86cf3b8477c
