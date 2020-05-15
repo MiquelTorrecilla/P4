@@ -52,14 +52,14 @@ ejercicios indicados.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh		
-sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -l 240 | $LPC -l 240 -m $lpc_order | $LPC2C -m $lpc_order -M $nceps > $base.cep
+sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -l 240 -L 240 | $LPC -l 240 -m $lpc_order | $LPC2C -m $lpc_order -M $nceps > $base.lpcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC) en
   su fichero <code>scripts/wav2mfcc.sh</code>:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $MFCC -l 240 -m $mfcc_order -s 8 -n $ncoef > $base.mfcc
+sox $inputfile -t raw | $X2X +sf | $FRAME -l 240 -p 80 |$WINDOW -l 240 -L 240| $MFCC -l 240 -m $mfcc_order -s 8 -n $ncoef  -w 1 > $base.mfcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### Extracción de características.
@@ -68,13 +68,13 @@ sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $MFCC
   para una señal de prueba.
 
 **LPC**
-  <img src ="img/Grafica1.jpeg" witdh="640" align="center">
+  <img src ="img/Grafica1.png" witdh="640" align="center">
 
 **LPCC**
-  <img src ="img/Grafica2.jpeg" witdh="640" align="center">
+  <img src ="img/Grafica2.png" witdh="640" align="center">
 
 **MFCC**
-  <img src ="img/Grafica3.jpeg" witdh="640" align="center">
+  <img src ="img/Grafica3.png" witdh="640" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
 

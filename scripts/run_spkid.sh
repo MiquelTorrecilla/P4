@@ -136,9 +136,18 @@ for cmd in $*; do
        for dir in $db/BLOCK*/SES* ; do
            name=${dir/*\/}
            echo $name ----
-           gmm_train  -v 1 -T 0.001 -N5 -m 1 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           if [[ $FEAT == lp ]]; then
+           gmm_train  -i 1 -v 1 -T 0.001 -N 10000 -m 40 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
            echo
+           elif [[ $FEAT == lpcc ]]; then
+           gmm_train  -i 1 -v 1 -T 0.001 -N 10000 -m 50 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           echo
+           elif [[ $FEAT == mfcc ]]; then
+           gmm_train  -i 0 -v 1 -T 0.001 -N 10000 -m 50 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           echo
+           fi
        done
+
    elif [[ $cmd == test ]]; then
        (gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/class/all.test | tee $w/class_${FEAT}_${name_exp}.log) || exit 1
         #echo
@@ -196,10 +205,18 @@ for cmd in $*; do
 	   # recognized is lists/final/class.test
 
        for filename in $(cat $lists/final/class.test); do
-        mkdir -p `dirname $w/$FEAT/final/$filename.$FEAT`
-        EXEC="wav2lpcc $order_lpcc $order_lpcc_cep $spk_ima/sr_test/$filename.wav $w/$FEAT/final/$filename.$FEAT"
-        echo $EXEC && $EXEC || exit 1
-        done        
+        mkdir -p `dirname $w/$FEAT/FINAL/$filename.$FEAT`
+        if [[ $FEAT == lpcc ]]; then
+            EXEC="wav2lpcc 19 26 $db1/$filename.wav $w/$FEAT/FINAL/$filename.$FEAT"
+            echo $EXEC && $EXEC || exit 1
+        elif [[ $FEAT == lp ]]; then
+            EXEC="wav2lp 8 $db1/$filename.wav $w/$FEAT/FINAL/$filename.$FEAT"
+            echo $EXEC && $EXEC || exit 1
+        elif [[ $FEAT == mfcc ]]; then
+            EXEC="wav2mfcc 14 19 $db1/$filename.wav $w/$FEAT/FINAL/$filename.$FEAT"
+            echo $EXEC && $EXEC || exit 1
+        fi
+    done        
 
        find $w/gmm/$FEAT -name '*.gmm' -printf '%P\n' | perl -pe 's/.gmm$//' | sort  > $lists/gmm.list
        (gmm_classify -d $w/$FEAT/final -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/final/class.test | tee $w/final/class_test.log) || exit 1
@@ -222,11 +239,20 @@ for cmd in $*; do
 	   # is lists/final/verif.test, and the list of users claimed by the test files is
 	   # lists/final/verif.test.candidates
        echo "implement finalverif ..."
+
 	for filename in $(cat $lists/final/verif.test); do
-        mkdir -p `dirname $w/$FEAT/final/$filename.$FEAT`
-        EXEC="wav2lpcc 19 $order_lpcc $db_final/$filename.wav $w/$FEAT/final/$filename.$FEAT"
-        echo $EXEC && $EXEC || exit 1
-        done 
+        mkdir -p `dirname $w/$FEAT/FINAL/$filename.$FEAT`
+        if [[ $FEAT == lpcc ]]; then
+            EXEC="wav2lpcc 19 26 $db1/$filename.wav $w/$FEAT/FINAL/$filename.$FEAT"
+            echo $EXEC && $EXEC || exit 1
+        elif [[ $FEAT == lp ]]; then
+            EXEC="wav2lp 8 $db1/$filename.wav $w/$FEAT/FINAL/$filename.$FEAT"
+            echo $EXEC && $EXEC || exit 1
+        elif [[ $FEAT == mfcc ]]; then
+            EXEC="wav2mfcc 14 19 $db1/$filename.wav $w/$FEAT/FINAL/$filename.$FEAT"
+            echo $EXEC && $EXEC || exit 1
+        fi
+    done 
 
        gmm_verify -d $w/$FEAT/final -e $FEAT -D $w/gmm/$FEAT -E gmm -w $world $lists/gmm.list $lists/final/verif.test $lists/final/verif.test.candidates | tee $w/final/verif_test.log
        

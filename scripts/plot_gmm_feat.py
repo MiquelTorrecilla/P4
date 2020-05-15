@@ -151,10 +151,8 @@ def plotGMM(fileGMM, xDim, yDim, percents, colorGmm, filesFeat=None, colorFeat=N
 
 USAGE='''
 Draws the regions in space covered with a certain probability by a GMM.
-
 Usage:
     plotGMM [--help|-h] [options] <file-gmm> [<file-feat>...]
-
 Options:
     --yDim INT, -x INT               'x' dimension to use from GMM and feature vectors [default: 0]
     --xDim INT, -y INT               'y' dimension to use from GMM and feature vectors [default: 1]
@@ -162,12 +160,7 @@ Options:
     --colorGMM STR, -g STR            Color of the GMM regions boundaries [default: red]
     --colorFEAT STR, -f STR           Color of the feature population [default: red]
     --limits xyLimits -l xyLimits     xyLimits are the four values xMin,xMax,yMin,yMax [default: auto]
-
     --help, -h                        Shows this message
-
-Arguments:
-    <file-gmm>    File with the Gaussian mixture model to be plotted
-    <file-fear>   Feature files to be plotted along the GMM
 '''
 
 if __name__ == '__main__':
@@ -193,4 +186,3 @@ if __name__ == '__main__':
         limits = None
 
     plotGMM(fileGMM, xDim, yDim, percents, colorGmm, filesFeat, colorFeat, limits, 111)
-
