@@ -59,7 +59,7 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -
   su fichero <code>scripts/wav2mfcc.sh</code>:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-sox $inputfile -t raw | $X2X +sf | $FRAME -l 240 -p 80 |$WINDOW -l 240 -L 240| $MFCC -l 240 -m $mfcc_order -s 8 -n $ncoef  -w 1 > $base.mfcc
+sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 240 -p 80 |$WINDOW -l 240 -L 240| $MFCC -l 240 -m $mfcc_order -s 8 -n $ncoef  -w 1 > $base.mfcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### Extracción de características.
