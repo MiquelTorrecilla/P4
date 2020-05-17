@@ -33,9 +33,13 @@ ejercicios indicados.
   en el *pipeline* principal (`sox`, `$X2X`, `$FRAME`, `$WINDOW` y `$LPC`).
 
   *sox: es un programa que sirve para generar una señal del formato adecuado a partir de una señal con otro formato, por ejemplo WAVE.*
+
   *$X2X: es el programa de SPTK que permite la conversión entre distintos formatos de datos.*
+  
   *$FRAME: es un programa en el cual le entra una señal y te devuelve a la salida la misma señal dividida en tramas de L muestras tomadas con un desplazamiento de P muestras.* 
+  
   *$WINDOW: es un programa que multiplica cada trama por la ventana Blackman.*
+  
   *$LPC: es un programa que calcula los lpc_order primeros coeﬁcientes de predicción lineal, precedidos por el factor de ganancia del predictor*
 
 - Explique el procedimiento seguido para obtener un fichero de formato *fmatrix* a partir de los ficheros
