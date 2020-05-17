@@ -125,7 +125,6 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
   | Error Rate (%)         |      |      | 1.35 |
-  | Cost         |      |      | 32.1 |
 
 ### Verificación del locutor.
 
@@ -135,6 +134,13 @@ Complete el código necesario para realizar verificación del locutor y optimice
   de verificación de SPEECON. La tabla debe incluir el umbral óptimo, el número de falsas alarmas y de
   pérdidas, y el score obtenido usando la parametrización que mejor resultado le hubiera dado en la tarea
   de reconocimiento.
+  
+  |                        | LP   | LPCC | MFCC |
+  |------------------------|:----:|:----:|:----:|
+  | Cost Detection (%)     |      |      | 32.1 |
+  |------------------------|:----:|:----:|:----:|
+  | Misses                 |      |      |      |
+  |------------------------|:----:|:----:|:----:|
  
 ### Test final y trabajo de ampliación.
 
