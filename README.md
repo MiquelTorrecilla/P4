@@ -68,13 +68,13 @@ sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 |$WINDO
   para una señal de prueba.
 
 **LPC**
-  <img src ="img/Grafica1.png" witdh="640" align="center">
+  <img src ="img/Grafica1.jpg" witdh="640" align="center">
 
 **LPCC**
-  <img src ="img/Grafica2.png" witdh="640" align="center">
+  <img src ="img/Grafica2.jpg" witdh="640" align="center">
  
 **MFCC**
-  <img src ="img/Grafica3.png" witdh="640" align="center">
+  <img src ="img/Grafica3.jpg" witdh="640" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
 
