@@ -125,6 +125,7 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
   | Error Rate (%)         |      |      | 1.35 |
+  | Cost         |      |      | 32.1 |
 
 ### Verificación del locutor.
 
