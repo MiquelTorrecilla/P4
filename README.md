@@ -137,10 +137,10 @@ Complete el código necesario para realizar verificación del locutor y optimice
   
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | Optimum Threshold      |      |0.5416|0.7534|
-  | False Alarm            |  0   |  0   |  1 / 1000   |
-  | Misses                 |      | 33/255  | 53 / 250  |
-  | Cost Detection (%)     |      |  13.2 | 31.1 |
+  | Optimum Threshold      |0.6497|0.5416|0.7534|
+  | False Alarm            |  0   |  0   | 1 / 1000 |
+  | Misses                 |128/250|33/255|53 / 250|
+  | Cost Detection (%)     | 51.2 | 13.2 | 31.1 |
   
   
  
