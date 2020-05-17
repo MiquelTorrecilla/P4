@@ -124,7 +124,7 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
   
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | Error Rate (%)         |      |      | 1.35 |
+  | Error Rate (%)         |      |      | 1.02 |
 
 ### Verificación del locutor.
 
@@ -137,10 +137,10 @@ Complete el código necesario para realizar verificación del locutor y optimice
   
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | Optimum Threshold      |      |      |      |
-  | False Alarm            |  0   |  0   |  0   |
-  | Misses                 |      |      |      |
-  | Cost Detection (%)     |      |      | 32.1 |
+  | Optimum Threshold      |      |      |0.7534|
+  | False Alarm            |  0   |  0   |  1   |
+  | Misses                 |      |      | 53   |
+  | Cost Detection (%)     |      |      | 31.1 |
   
   
  
