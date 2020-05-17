@@ -139,7 +139,7 @@ Complete el código necesario para realizar verificación del locutor y optimice
   |------------------------|:----:|:----:|:----:|
   | Optimum Threshold      |      |0.5416|0.7534|
   | False Alarm            |  0   |  0   |  1 / 1000   |
-  | Misses                 |      | 33 / 255  | 53 / 250  |
+  | Misses                 |      | 33/255  | 53 / 250  |
   | Cost Detection (%)     |      |  13.2 | 31.1 |
   
   
