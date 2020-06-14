@@ -14,7 +14,7 @@
 # - db:       directory of the speecon database 
 lists=lists
 w=work
-name_exp=one
+name_exp=ampl
 db=spk_8mu/speecon
 
 # ------------------------
@@ -137,13 +137,13 @@ for cmd in $*; do
            name=${dir/*\/}
            echo $name ----
            if [[ $FEAT == lp ]]; then
-           gmm_train  -i 0 -v 1 -T 0.0001 -N 900 -m 67 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           gmm_train  -i 1 -v 1 -T 0.001 -N 900 -m 67 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
            echo
            elif [[ $FEAT == lpcc ]]; then
-           gmm_train  -i 0 -v 1 -T 0.0001 -N 900 -m 67 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           gmm_train  -i 1 -v 1 -T 0.001 -N 900 -m 67 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
            echo
            elif [[ $FEAT == mfcc ]]; then
-           gmm_train  -i 0 -v 1 -T 0.0001 -N 900 -m 67 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           gmm_train  -i 1 -v 1 -T 0.0001 -N 1000000 -m 67 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
            echo
            fi
        done
@@ -170,13 +170,13 @@ for cmd in $*; do
 	   #
 	   # - The name of the world model will be used by gmm_verify in the 'verify' command below.
        if [[ $FEAT == lp ]]; then
-           gmm_train  -i 0 -v 1 -T 0.001 -N 900 -m 50 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train || exit 1
+           gmm_train  -i 0 -v 1 -T 0.0001 -N 900 -m 67 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train || exit 1
            echo
            elif [[ $FEAT == lpcc ]]; then
-           gmm_train  -i 0 -v 1 -T 0.001 -N 900 -m 30 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train || exit 1
+           gmm_train  -i 0 -v 1 -T 0.0001 -N 900 -m 67 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train || exit 1
            echo
            elif [[ $FEAT == mfcc ]]; then
-           gmm_train  -i 0 -v 1 -T 0.001 -N 900 -m 30 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train || exit 1
+           gmm_train  -i 0 -v 1 -T 0.0001 -N 10000000 -m 30 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train || exit 1
            echo
            fi
        
